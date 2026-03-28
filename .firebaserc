@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "adminpro-7e194"
-  }
+    "default": "adminpro-7e194",
+    "firelandingpage": "adminpro-7e194",
+    "landigview": "adminpro-7e194"
+  },
+  "targets": {},
+  "etags": {}
 }

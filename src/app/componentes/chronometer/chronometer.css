@@ -32,6 +32,10 @@ button {
 button + button {
   margin-left: 10px;
 }
+.contorno{ border: 5px solid #130101;
+    border-radius: 0px;
+}
+
 @keyframes increment {
   33% {
     color: green;

@@ -11,7 +11,7 @@
 }
 @else
 {
-<form [formGroup]="profileForm" (ngSubmit)="onSend()">
+<form [formGroup]="profileForm" (ngSubmit)="onSend()" style="background-color: #1ada18; padding:35px">
   <div class="mb-3">
     <label for="namePerson" class="form-label">Nombre: </label>
     <input id="namePerson" name="namePerson" class="form-control" type="text" formControlName="namePerson" />
@@ -25,8 +25,12 @@
     <label for="comment" class="form-label">Comentario: </label>    
     <textarea id="comment" class="form-control"  formControlName="comment" rows="10" cols="15"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Registrarse</button>
+  <div class="row">
+  <button type="submit" class="btn btn-primary col align-self-start" [disabled]="!profileForm.valid">Registrarse</button>
+  <div class="heart col align-self-end"></div>
+  </div>
 </form>
+
 }
 
 @if(error)

@@ -10,9 +10,11 @@ import { retry, take, map } from 'rxjs/operators'
 })
 export class Chronometer implements OnInit 
 {
-    counter = signal(5);
+    expiration=180
+    counter = signal(this.expiration);
     cronometr = viewChild<ElementRef<HTMLParagraphElement>>('cronometr');
     stoper=model.required<boolean>();
+    counterLast=signal(Math.trunc(this.counter()/60))
     
   ngOnInit() {
     this.cronometr()?.nativeElement.addEventListener('animationend', (ev) => 
@@ -31,6 +33,7 @@ export class Chronometer implements OnInit
   modify(n: number) {
     const targetClass = n > 0 ? 'increment' : 'decrement';
     this.counter.update(x => (x += n));
+    this.counterLast.update(x => Math.trunc(this.counter()/60))
     this.cronometr()?.nativeElement.classList.add(targetClass);
   }
   animationFinished() {
@@ -44,7 +47,7 @@ export class Chronometer implements OnInit
 
   initCounter=() =>
   {
-    return interval(1000).pipe( map(x => {
+    return interval(700).pipe( map(x => {
       
       if(this.counter()>0)
         {          
@@ -58,7 +61,7 @@ export class Chronometer implements OnInit
         }
 
       return x
-    }), take(6))
+    }), take(this.expiration+1))
     
   }
 }

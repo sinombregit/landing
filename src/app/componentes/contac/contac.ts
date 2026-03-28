@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { UserService } from '../../servives/user-service';
 import swal from 'sweetalert2';
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-contac',
@@ -28,7 +29,7 @@ export class Contac {
 
     if(this.profileForm.valid)
     {      
-      this.userService.send(this.profileForm.value).subscribe(x =>
+      this.userService.send(environment.apiUrl+'/api/contact', this.profileForm.value).subscribe(x =>
       {
         console.log(x)
         if(x.status==200)

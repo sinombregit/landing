@@ -1,8 +1,4 @@
-<h3>Cronometro</h3>
-<section>
-  <h2 #cronometr> {{ counter() }}</h2>
-  <div class="controls">
-    <button type="button" (click)="modify(1)">+</button>
-    <button type="button" (click)="modify(-1)">-</button>
-  </div>
+<h6>Te quedan antes de que se cierre el registro</h6>
+<section class="contorno">
+  <h2 #cronometr> {{counterLast() }} : {{counter()%60}}</h2>  
 </section>

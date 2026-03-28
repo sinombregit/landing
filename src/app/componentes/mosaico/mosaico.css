@@ -1,0 +1,29 @@
+
+
+.destacado{
+    animation: 1.5s ease 0s infinite beat;
+}
+
+.destacados{
+  /* Llamamos a la animación definida abajo */
+  animation: pintar 1s ease-out forwards;
+  
+  /* Estado inicial antes de la animación para evitar saltos */
+  opacity: 0;
+}
+
+@keyframes pintar {
+  0% {
+    opacity: 0;
+    transform: translateY(170px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.populares{
+    animation: pintar 3s ease-out forwards; 
+    opacity: 0;
+}

@@ -14,9 +14,9 @@ export class UserService {
     return this.http.get(''); 
   }
 
-  send(information:any) {      
+  send(url:string, information:any) {      
     
-    return this.http.post<{status:number}>('http://localhost:3000/api/contact', information)
+    return this.http.post<{status:number}>(url, information)
     .pipe(
       map(x => x)
     )

@@ -80,7 +80,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    max-width: 700px;
+    max-width: 95%;
     margin-bottom: 3rem;
   }
 
@@ -181,16 +181,16 @@
   }
 </style>
 
-<app-welcome></app-welcome>
+<app-welcome style="display: none;"></app-welcome>
 
 <main class="main">
   <div class="content">
-    <div class="left-side">
+    <div class="left-side" style="max-width: 50%;">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 982 239"
         fill="none"
-        class="angular-logo"
+        class="angular-logo" style="display:none;"
       >
         <g clip-path="url(#a)">
           <path
@@ -231,83 +231,36 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p >Congratulations! Your app is running. 🎉</p>
-      
-      
-      @if(showContact())
-      {
-        <p>visible</p>
-      }
-      @else
-      {
-        <p>oculto</p>
-      }
-      
-      <div>
-        <app-chronometer [(stoper)]="showContact"></app-chronometer>
-      </div>
+      <h1>Ultimosss lugares</h1>
+      <br/> 
+      <h3>Felicidades! Haz sido seleccionado para recibir un regalo. 🎉</h3>
+      <br/>     
+      <br/>
+      <br/>
+      <app-mosaico></app-mosaico>
 
-      @if(showTitle)
-      {      
-        <p>Congratulations componente visible 🎉</p>
-      }
-      @else
-      {
-        <p> componente  no visible </p>
-      }  
-
-      <button type="button" (click)="toggle()">Toggle Element</button>
-      @if (isShown()) {
-  <div class="enter-container" animate.enter="enter-animation">
-    <p>The box is entering.</p>
-  </div>
-}
-
-    <h2><code>animate.leave</code> Example</h2>
-<button type="button" (click)="toggle()">Toggle Element</button>
-@if (isShown()) {
-  <div class="leave-container" animate.leave="leaving">
-    <p>Goodbye</p>
-  </div>
-}
-
-
-
- <app-contac></app-contac> 
+ 
 
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
+    <div class="right-side" style="max-width: 35%;">
+      
+      <div>
+        <app-chronometer style="background-color: #c2cac2; padding:35px" [(stoper)]="showContact"></app-chronometer>
+      </div>
+      <div>
+        <h5>No dejes pasar esta oportunidad</h5>
+        <h4>Escucharas de viva voz a los expertos, podras hacer consultas y recibir tips 
+          y lo mejor de todo, si te inscribes antes de que termine la cuenta regresiva, tu entrada es gratis </h4>
+      </div>
+
+      @if(!showContact())
+      {
+        <app-contac ></app-contac> 
+      }
+      
       <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+        
       </div>
       <div class="social-links">
         <a
