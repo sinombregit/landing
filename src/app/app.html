@@ -181,6 +181,8 @@
   }
 </style>
 
+<app-welcome></app-welcome>
+
 <main class="main">
   <div class="content">
     <div class="left-side">
@@ -230,7 +232,50 @@
         </defs>
       </svg>
       <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <p >Congratulations! Your app is running. 🎉</p>
+      
+      
+      @if(showContact())
+      {
+        <p>visible</p>
+      }
+      @else
+      {
+        <p>oculto</p>
+      }
+      
+      <div>
+        <app-chronometer [(stoper)]="showContact"></app-chronometer>
+      </div>
+
+      @if(showTitle)
+      {      
+        <p>Congratulations componente visible 🎉</p>
+      }
+      @else
+      {
+        <p> componente  no visible </p>
+      }  
+
+      <button type="button" (click)="toggle()">Toggle Element</button>
+      @if (isShown()) {
+  <div class="enter-container" animate.enter="enter-animation">
+    <p>The box is entering.</p>
+  </div>
+}
+
+    <h2><code>animate.leave</code> Example</h2>
+<button type="button" (click)="toggle()">Toggle Element</button>
+@if (isShown()) {
+  <div class="leave-container" animate.leave="leaving">
+    <p>Goodbye</p>
+  </div>
+}
+
+
+
+ <app-contac></app-contac> 
+
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">

@@ -1,0 +1,41 @@
+
+@if(sentend)
+{
+  <div class="card text-bg-info mb-3" >
+  <div class="card-header">Correcto</div>
+  <div class="card-body">
+    <h5 class="card-title">Registro exitoso</h5>
+    <p class="card-text">Se guardo tu info</p>
+  </div>
+</div>
+}
+@else
+{
+<form [formGroup]="profileForm" (ngSubmit)="onSend()">
+  <div class="mb-3">
+    <label for="namePerson" class="form-label">Nombre: </label>
+    <input id="namePerson" name="namePerson" class="form-control" type="text" formControlName="namePerson" />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email: </label>
+    <input id="email" class="form-control" type="email" formControlName="email" />
+  </div>
+  
+  <div class="mb-3">
+    <label for="comment" class="form-label">Comentario: </label>    
+    <textarea id="comment" class="form-control"  formControlName="comment" rows="10" cols="15"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Registrarse</button>
+</form>
+}
+
+@if(error)
+{
+  <div class="card text-bg-danger mb-3" style="margin-top: 19px;">
+    <div class="card-header">Errores en el llenado</div>
+    <div class="card-body">
+      <h5 class="card-title">Revisa la info</h5>
+      <p class="card-text">{{detail.substring(1)}}</p>
+    </div>
+  </div>
+}
