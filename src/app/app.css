@@ -96,3 +96,9 @@ button + button {
     transform: scale(1, 1);
   }
 }
+
+@media screen and (min-width: 651px) {
+  .right-side {
+    max-width: 35%;
+  }
+}

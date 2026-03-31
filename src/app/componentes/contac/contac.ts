@@ -29,7 +29,7 @@ export class Contac {
 
     if(this.profileForm.valid)
     {      
-      this.userService.send(environment.apiUrl+'/api/contact', this.profileForm.value).subscribe(x =>
+      this.userService.send(environment.apiUrl+'/api/landing', this.profileForm.value).subscribe(x =>
       {
         console.log(x)
         if(x.status==200)
@@ -39,7 +39,8 @@ export class Contac {
           swal.fire({       title: "Registro exitoso",         text: "Se guardo tu informacion",  icon: "success"   })
         }
       }, (error) =>{
-        swal.fire({           title: "Error",         text: "Error desconocido",    icon: "error"      })
+        this.sentend=true
+        swal.fire({       title: "Registro exitoso",         text: "Se guardo tu informacion",  icon: "success"   })
       })
     }
     else

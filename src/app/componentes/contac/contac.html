@@ -1,15 +1,5 @@
 
-@if(sentend)
-{
-  <div class="card text-bg-info mb-3" >
-  <div class="card-header">Correcto</div>
-  <div class="card-body">
-    <h5 class="card-title">Registro exitoso</h5>
-    <p class="card-text">Se guardo tu info</p>
-  </div>
-</div>
-}
-@else
+@if(!sentend)
 {
 <form [formGroup]="profileForm" (ngSubmit)="onSend()" style="background-color: #1ada18; padding:35px">
   <div class="mb-3">
@@ -27,7 +17,7 @@
   </div>
   <div class="row">
   <button type="submit" class="btn btn-primary col align-self-start" [disabled]="!profileForm.valid">Registrarse</button>
-  <div class="heart col align-self-end"></div>
+  
   </div>
 </form>
 

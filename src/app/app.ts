@@ -4,11 +4,12 @@ import { Chronometer } from './componentes/chronometer/chronometer';
 import { Contac } from './componentes/contac/contac';
 import { Welcome } from './componentes/welcome/welcome';
 import { Mosaico } from './componentes/mosaico/mosaico';
+import { Invitation } from './componentes/invitation/invitation';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Chronometer, Contac, Welcome, Mosaico],
+  imports: [RouterOutlet, Chronometer, Contac, Welcome, Mosaico, Invitation],
   templateUrl: './app.html',
   styleUrl: './app.css'  
 })

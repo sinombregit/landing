@@ -27,3 +27,9 @@
     animation: pintar 3s ease-out forwards; 
     opacity: 0;
 }
+
+@keyframes shrint {
+  0%, 50%, 100% { transform: scale(1, 1); }
+  30%, 80% { transform: scale(0.92, 0.95); }
+}
+
